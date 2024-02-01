@@ -62,8 +62,8 @@ function renderCarrito(){
         tr.innerHTML = Content;
         tbody.append(tr)
 
-        tr.querySelector(".delete").addEventListener('click', removeItemCarrito)
-        tr.querySelector(".input__elemento").addEventListener('change', sumaCantidad)
+        tr.querySelector(".delete").addEventListener('click', removeItemCarrito);
+        tr.querySelector(".input__elemento").addEventListener('change', sumaCantidad);
     })
     CarritoTotal()
 }
