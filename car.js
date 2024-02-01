@@ -46,7 +46,7 @@ function renderCarrito(){
     carrito.map(item =>{
         const tr = document.createElement('tr')
         tr.classList.add('ItemCarrito')
-        const Content = //html
+        const Content =
         `
         <th scope="row">1</th>
         <td class="table__products">
@@ -62,8 +62,8 @@ function renderCarrito(){
         tr.innerHTML = Content;
         tbody.append(tr)
 
-        tr.querySelector('.delete').addEventListener('click ', removeItemCarrito)
-        tr.querySelector('.input__elemento').addEventListener('change', sumaCantidad)
+        tr.querySelector(".delete").addEventListener('click', removeItemCarrito)
+        tr.querySelector(".input__elemento").addEventListener('change', sumaCantidad)
     })
     CarritoTotal()
 }
@@ -86,27 +86,39 @@ function removeItemCarrito(e){
     const tr = buttonDelete.closest(".ItemCarrito")
     const title = tr.querySelector('.title').textContent;
     for(let i=0; i<carrito.length ; i++){
-
-    if(carrito[i].title.trim() === title.trim()){
-        carrito.splice(i, 1)
-        console.log('hola mundo')
+        if(carrito[i].title.trim() === title.trim()){
+            carrito.splice(i, 1)
+        }
     }
-    }
-
     tr.remove()
     CarritoTotal()
 }
 
-function sumaCantidad(e){
-    const sumaInput = e.target
-    const tr = sumaInput.closest('.ItemCarrito')
-    const title = tr.querySelector('.title').textContent
-    carrito.forEach(item =>{
-        if(item.title.trim() === title){
-            sumaInput.value < 1 ? (sumaInput.value = 1) : sumaInput.value;
-            item.cantidad = sumaInput.value;
-            CarritoTotal()
-        }
-        console.log(carrito)
-    })
+// function sumaCantidad(e) {
+//     const sumaInput = e.target;
+//     const tr = sumaInput.closest(".ItemCarrito");
+//     const title = tr.querySelector('.title').textContent;
+    
+//     carrito.forEach(item => {
+//     if (item.title.trim() === title) {
+//         sumaInput.value = Math.max(1, parseInt(sumaInput.value) || 0);
+//         item.cantidad = sumaInput.value;
+//         CarritoTotal();
+//     }
+//     });
+// }
+
+function sumaCantidad(e) {
+    const sumaInput = e.target;
+    const tr = sumaInput.closest(".ItemCarrito");
+    const title = tr.querySelector('.title').textContent;
+    
+    carrito.forEach(item => {
+    if (item.title.trim() === title) {
+        sumaInput.value = Math.max(1, parseInt(sumaInput.value) || 0);
+        item.cantidad = sumaInput.value;
+    }
+    });
+
+    CarritoTotal();
 }
