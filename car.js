@@ -1,6 +1,9 @@
 const Clickbutton = document.querySelectorAll('.button');
 const tbody = document.querySelector('.tbody')
+const buscador = document.querySelector('#buscador')
+
 let carrito = []
+
 
 Clickbutton.forEach(btn => {
     btn.addEventListener('click', addToCarritoItem)
@@ -24,6 +27,8 @@ function addToCarritoItem(e){
 }
 
 function addItemCarrito(newItem){
+
+
 
     const InputElemnto = tbody.getElementsByClassName('input__elemento')
     for(let i=0; i < carrito.length ; i++){
@@ -134,3 +139,20 @@ window.onload = function() {
         renderCarrito();
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const buscador = document.getElementById('buscador');
+
+    buscador.addEventListener('input', (event) => {
+        const search = event.target.value.toLowerCase();
+        const productos = document.querySelectorAll('.card'); 
+        productos.forEach((producto) => {
+            const nombreProducto = producto.querySelector('.card-title').textContent.toLowerCase();
+            if (nombreProducto.includes(search)) {
+                producto.style.display = 'block'; 
+            } else {
+                producto.style.display = 'none'; 
+            }
+        });
+    });
+});

@@ -2,7 +2,7 @@ body{
     background: rgb(255, 255, 255);
 }
 
-header{
+header, .alert{
     z-index: 100;
 }
 
@@ -41,5 +41,15 @@ header{
     margin-bottom: 20px;
 }
 .hide, .remove{
+    display: none;
+}
+
+.buscar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hide{
     display: none;
 }
