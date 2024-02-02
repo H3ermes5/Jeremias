@@ -78,7 +78,7 @@ function CarritoTotal(){
     })
 
     itemCartTotal.innerHTML = `Total $${Total}`
-
+    addLocalStorage()
 }
 
 function removeItemCarrito(e){
@@ -121,4 +121,16 @@ function sumaCantidad(e) {
     });
 
     CarritoTotal();
+}
+
+function addLocalStorage() {
+    localStorage.setItem('carrito', JSON.stringify(carrito)); // Corregí la coma ',' en lugar de un punto y coma ';'
+}
+
+window.onload = function() {
+    const storage = JSON.parse(localStorage.getItem('carrito'));
+    if (storage) {
+        carrito = storage;
+        renderCarrito();
+    }
 }
