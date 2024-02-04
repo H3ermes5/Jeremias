@@ -50,6 +50,6 @@ header, .alert{
     justify-content: center;
 }
 
-.hide{
+.hide, .remove{
     display: none;
 }
