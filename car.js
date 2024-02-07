@@ -71,7 +71,7 @@ function renderCarrito(){
         <td class="table__precio"><p>${item.precio}</p></td>
         <td class="table__cantidad">
         <input type="number" min="1" value="${item.cantidad}" class="input__elemento">
-        <button class="delete brn btn-danger">x</button>
+        <button class="delete btn btn-danger">x</button>
         </td>`;
 
         tr.innerHTML = Content;
@@ -110,18 +110,27 @@ function removeItemCarrito(e){
 
 function sumaCantidad(e) {
     const sumaInput = e.target;
-    const tr = sumaInput.closest(".ItemCarrito");
-    const title = tr.querySelector('.title').textContent;
+    const tr = findAncestorWithClass(sumaInput, "ItemCarrito");
     
-    carrito.forEach(item => {
-        if (item.title.trim() === title) {
-            sumaInput.value = Math.max(1, parseInt(sumaInput.value) || 0);
-            item.cantidad = sumaInput.value;
-        }
-    });
+    if (tr) {
+        const title = tr.querySelector('.title').textContent;
 
-    CarritoTotal();
+        carrito.forEach(item => {
+            if (item.title.trim() === title) {
+                sumaInput.value = Math.max(1, parseInt(sumaInput.value) || 0);
+                item.cantidad = sumaInput.value;
+            }
+        });
+
+        CarritoTotal();
+    }
 }
+
+function findAncestorWithClass(element, className) {
+    while ((element = element.parentElement) && !element.classList.contains(className));
+    return element;
+}
+
 
 function addLocalStorage() {
     localStorage.setItem('carrito', JSON.stringify(carrito));
