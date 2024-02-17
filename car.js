@@ -61,7 +61,7 @@ function renderCarrito() {
     carrito.map(item => {
         const tr = document.createElement('tr');
         tr.classList.add('ItemCarrito');
-        const Content =
+        const Content = 
             `
         <th scope="row">1</th>
         <td class="table__products">
@@ -101,25 +101,23 @@ const renderCategory = (list) => {
     selectCategory.innerHTML = '';
     list.forEach(category => {
         selectCategory.innerHTML += // html
-            `<button id="${category.id_category}" class="btn btn-primary">${category.name}</button>`
+            `<option value="${category.id_category}">${category.name}</option>`
     })
 }
 
 const filtroCategoria = (id_category) => {
-    if (id_category === 'all') {
-        renderProducto(productos);
-    } else {
-        productosFiltrados = productos.filter((product) => product.id_category == id_category);
+        const productosFiltrados = productos.filter((producto) => producto.id_category === parseInt(id_category));
         renderProducto(productosFiltrados);
+        console.table(productosFiltrados);
     }
-}
 
-selectCategory.addEventListener('click', (e) => {
-    const id_category = e.target.id;
-    console.log('cambio', id_category);
+selectCategory.addEventListener('change', (e) => {
+    const id_category = selectCategory.value;
+    console.log('categoria', id_category);
     filtroCategoria(id_category);
 });
 
+filtroCategoria('all');
 const getProducts = async () => {
     try {
         const endPoint = "db.json";
@@ -129,7 +127,7 @@ const getProducts = async () => {
         const { productos: allProductos, category } = json;
         productos = allProductos;
         renderCategory(category);
-        filtroCategoria('all');
+        
     } catch (error) {
         console.error(error);
         alert("Error al cargar productos");
@@ -215,3 +213,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+
+

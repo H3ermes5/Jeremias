@@ -65,3 +65,8 @@ header, .alert{
     padding: 10px;
     gap: 10px;
 }
+
+.filtro{
+    width: 100px;
+    height: 25px;
+}
