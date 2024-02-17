@@ -39,6 +39,7 @@ header, .alert{
     font-weight: 700;
     margin-right: 30px;
     margin-bottom: 20px;
+
 }
 .hide, .remove{
     display: none;
@@ -56,4 +57,11 @@ header, .alert{
 
 .bx-cart {
     font-size: 18px;
+}
+
+.button_filter {
+    display: flex;
+    margin-bottom: 10px;
+    padding: 10px;
+    gap: 10px;
 }

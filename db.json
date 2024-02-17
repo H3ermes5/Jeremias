@@ -1,0 +1,73 @@
+{
+    "productos": [
+        {
+            "id_productos": 1,
+            "title": "Nike Air Force 1 '07 White",
+            "img": "/img/af2.png",
+            "description": "Color Mostrado: Blanco/Negro/Plata metalizado/Blanco.",
+            "precio": 150,
+            "id_category": 1
+        },
+        {
+            "id_productos": 2,
+            "title": "Nike Air Force 1 Low",
+            "img": "/img/af3.png",
+            "description": "Color mostrado: Blanco/Oro metalizado/Summit White.",
+            "precio": 160,
+            "id_category": 1
+        },
+        {
+            "id_productos": 3,
+            "title": "Nike Air Force 1 '07 Mid",
+            "img": "/img/af4.png",
+            "description": "Color mostrado: Blanco/Blanco/Blanco.",
+            "precio": 155,
+            "id_category": 1
+        },
+        {
+            "id_productos": 4,
+            "title": "Nike Air Force 1 '07",
+            "img": "/img/af5.png",
+            "description": "Color mostrado: Phantom/Negro.",
+            "precio": 180,
+            "id_category": 1
+        },
+        {
+            "id_productos": 5,
+            "title": "Short Nike DriFIT",
+            "img": "/img/short1.jpg",
+            "description": "Color mostrado: Azul difuso/Negro.",
+            "precio": 55,
+            "id_category": 2
+        },
+        {
+            "id_productos": 6,
+            "title": "Short Nike Jordan",
+            "img": "/img/short2.jpg",
+            "description": "Color mostrado: Cáñamo/Vela/Blanco.",
+            "precio": 80,
+            "id_category": 2
+        },
+        {
+            "id_productos": 7,
+            "title": "Short Nike J.Flight",
+            "img": "/img/short3.jpg",
+            "description": "Color mostrado: Negro/Negro.",
+            "precio": 75,
+            "id_category": 2
+        },
+        {
+            "id_productos": 8,
+            "title": "Short Nike Swoosh",
+            "img": "/img/short4.jpg",
+            "description": "Color mostrado: Negro.",
+            "precio": 65,
+            "id_category": 2
+        }
+    ],
+
+    "category": [
+        {"id_category": 1, "name": "zapatilla"},
+        {"id_category": 2, "name": "short"}
+    ]
+}
